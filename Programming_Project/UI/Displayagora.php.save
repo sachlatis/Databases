@@ -1,0 +1,48 @@
+<?php
+	include("DBConnection.php");
+	session_start();
+?>
+
+<!DOCTYPE HTML>
+<html>
+<body bgcolor="1c1d26">
+	<head>
+		<link rel="stylesheet" type="text/css" href="button.css">
+	</head>
+<center><h2 style="color:white;"></h2></center>
+<br>
+<?php
+
+$search1 = $_GET["search1"];
+$search2 = $_GET["search2"];
+$search3 = $_GET["search3"];
+$search4 = $_GET["search4"];
+if(!empty($search1) && !empty($search2) && !empty($search3) && !empty($search4))
+{
+
+$query = "SELECT Transaction_id
+           FROM Transaction
+           WHERE Store_id = $search1 AND Day = $search2 AND Month = $search3 AND Year =$search4";
+
+$result = mysqli_query($con,$query);
+
+if(!$result)
+	echo "<div style ='color:white'> Error</div>";
+else
+{
+
+echo "<div style ='color:white'> Παρακαλώ επιλέξτε το βιβλίο που θέλετε!</div>"; ?>
+<table border="2" align="center" cellpadding="5" cellspacing="5">
+
+<tr>
+<th style="color:white;"> ISBN </th>
+
+</tr>
+<?php while($row = mysqli_fetch_assoc($result))
+{
+?>
+<tr>
+<td style="color:white;"><?php echo $row["Transaction_id"];?> </td>
+
+</tr>
+
