@@ -1,4 +1,5 @@
 # Databases
+This repository contains the programming project and the theory assignment for ECE NTUA course DataBases.
 
 ## Programming Project
 We had to implement the database of a supermarket chain.</br> 
